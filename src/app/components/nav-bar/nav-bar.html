@@ -15,8 +15,7 @@
                 <li class="nav-item">
                     <a 
                     [routerLink]="['/cart']"
-                    [state]="{items: items, total: total}"
-                    class="nav-link" href="#"> Cart ({{items.length}})</a>
+                    class="nav-link" href="#"> Cart ({{items().length}})</a>
                 </li>
             </ul>
         </div>

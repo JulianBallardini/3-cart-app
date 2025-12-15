@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CartItem } from '../../models/cartItems';
 import { RouterModule } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'nav-bar',
@@ -8,7 +9,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './nav-bar.html',
 })
 export class NavBar {
-  @Input() items: CartItem[] = [];
-  @Input() total: number = 0;
- 
+  private store = inject(Store);
+  items = this.store.selectSignal(state => state.items.items);
+
 }
